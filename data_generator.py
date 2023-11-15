@@ -14,6 +14,8 @@ import configparser
 import tensorflow as tf
 import time
 
+
+
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
@@ -46,10 +48,13 @@ def getNormalPoints(num, filename, dim):
     locations_tf = []
     for i in range(dim):
         # locations_tf.append(tf.random.truncated_normal([num * 2, 1], mean=0.5, stddev=0.125, dtype=tf.float32))
-        locations_tf.append(tf.random_normal([num * 2, 1], mean=0.5, stddev=0.125, dtype=tf.float32))
+        locations_tf.append(tf.random.normal([num * 2, 1], mean=0.5, stddev=0.125, dtype=tf.float32))
     with tf.compat.v1.Session() as sees:
         locations = []
         for i in range(dim):
+            # if locations_tf[i].size == 0:
+            #     print("empty at " + i + "\n")
+            #     print(locations_tf[i])
             locations.append(sees.run(locations_tf[i]))
         name = filename % (num, dim)
         index = 0
