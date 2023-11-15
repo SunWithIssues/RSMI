@@ -63,18 +63,19 @@ const string Constants::DATASETS = "./datasets/";
 ```
 
 data_generator.py
+
 ```python
 if __name__ == '__main__':
-    distribution, size, skewness, filename, dim = parser(sys.argv[1:])
+    distribution, size, skewness, prefix, dim = parser(sys.argv[1:])
     if distribution == 'uniform':
-        filename = "datasets/uniform_%d_1_%d_.csv"
-        getUniformPoints(size, filename, dim)
+        prefix = "datasets/uniform_%d_1_%d_.csv"
+        getUniformPoints(size, prefix, dim)
     elif distribution == 'normal':
-        filename = "datasets/normal_%d_1_%d_.csv"
-        getNormalPoints(size, filename, dim)
+        prefix = "datasets/normal_%d_1_%d_.csv"
+        getNormalPoints(size, prefix, dim)
     elif distribution == 'skewed':
-        filename = "datasets/skewed_%d_%d_%d_.csv"
-        getSkewedPoints(size, skewness, filename, dim)
+        prefix = "datasets/skewed_%d_%d_%d_.csv"
+        getSkewedPoints(size, skewness, prefix, dim)
 ```
 
 

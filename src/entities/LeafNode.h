@@ -6,21 +6,29 @@
 #include "Point.h"
 #include "Mbr.h"
 #include "NonLeafNode.h"
+
 using namespace std;
 
-class LeafNode : public nodespace::Node
-{
+class LeafNode : public nodespace::Node {
 public:
     int level;
     vector<Point> *children;
     NonLeafNode *parent;
+
     LeafNode();
+
     LeafNode(Mbr mbr);
-    void add_point(Point);
-    void add_points(vector<Point>);
+
+    void add_point(const Point&);
+
+    void add_points(const vector<Point> &);
+
     bool delete_point(Point);
+
     bool is_full();
+
     LeafNode *split();
+
     LeafNode split1();
 };
 

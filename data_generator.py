@@ -45,39 +45,32 @@ def getUniformPoints(num, filename, dim):
         all_fo.close()
 
 def getNormalPoints(num, filename, dim):
-    locations_tf = []
+    locations = []
     for i in range(dim):
         # locations_tf.append(tf.random.truncated_normal([num * 2, 1], mean=0.5, stddev=0.125, dtype=tf.float32))
-        locations_tf.append(tf.random.normal([num * 2, 1], mean=0.5, stddev=0.125, dtype=tf.float32))
-    with tf.compat.v1.Session() as sees:
-        locations = []
-        for i in range(dim):
-            # if locations_tf[i].size == 0:
-            #     print("empty at " + i + "\n")
-            #     print(locations_tf[i])
-            locations.append(sees.run(locations_tf[i]))
-        name = filename % (num, dim)
-        index = 0
-        with open(name, "w") as fo:
+        locations.append(np.random.normal(0.5, 0.125, [num * 2, 1]))
 
-            # for i in range(num * 2):
-            while index < num and i < 2 * num:
-                while True:
-                    iswritable = True
-                    node_string = ''
-                    for j in range(dim):
-                        if locations[j][i][0] < 0 or locations[j][i][0] > 1:
-                            iswritable = False
-                            break
-                        node_string = node_string + str(locations[j][index][0]) + ","
-                    if iswritable:
-                        node_string = node_string + str(i) + "\n"
-                        fo.write(node_string)
-                        i += 1
-                        index += 1
+    name = filename % (num, dim)
+    index = 0
+    with open(name, "w") as fo:
+        # for i in range(num * 2):
+        while index < num and i < 2 * num:
+            while True:
+                iswritable = True
+                node_string = ''
+                for j in range(dim):
+                    if locations[j][i][0] < 0 or locations[j][i][0] > 1:
+                        iswritable = False
                         break
-                    else:
-                        i += 1
+                    node_string = node_string + str(locations[j][index][0]) + ","
+                if iswritable:
+                    node_string = node_string + str(i) + "\n"
+                    fo.write(node_string)
+                    i += 1
+                    index += 1
+                    break
+                else:
+                    i += 1
 
 def getSkewedPoints(num, a, filename, dim):
     locations_tf = []

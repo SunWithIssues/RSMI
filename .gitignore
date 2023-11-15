@@ -4,7 +4,7 @@ torch_models/*
 Exp
 *.sh
 files/*
-indices/ZM.h
+src/indices/ZM.h
 datasets/*
 
 PostgreSQL/
@@ -15,3 +15,5 @@ torch_models_zm/*
 
 *.eps
 *.png
+
+.idea/

@@ -4,42 +4,36 @@
 #include "Point.h"
 #include "../utils/Constants.h"
 #include <algorithm>
+
 using namespace std;
 
-LeafNode::LeafNode()
-{
+LeafNode::LeafNode() {
     children = new vector<Point>();
 }
 
-LeafNode::LeafNode(Mbr mbr)
-{
+LeafNode::LeafNode(Mbr mbr) {
     this->mbr = mbr;
     children = new vector<Point>();
 }
 
-void LeafNode::add_point(Point point)
-{
+void LeafNode::add_point(const Point &point) {
     // add
     children->push_back(point);
     // update MBR
     mbr.update(point.x, point.y);
 }
 
-void LeafNode::add_points(vector<Point> points)
-{
-    for (int i = 0; i < points.size(); i++)
-    {
+void LeafNode::add_points(const vector<Point> &points) {
+    for (int i = 0; i < points.size(); i++) {
         add_point(points[i]);
     }
 }
 
-bool LeafNode::is_full()
-{
+bool LeafNode::is_full() {
     return children->size() >= Constants::PAGESIZE;
 }
 
-LeafNode *LeafNode::split()
-{
+LeafNode *LeafNode::split() {
     // build rightNode
     LeafNode *right = new LeafNode();
     right->parent = this->parent;
@@ -54,8 +48,7 @@ LeafNode *LeafNode::split()
     return right;
 }
 
-LeafNode LeafNode::split1()
-{
+LeafNode LeafNode::split1() {
     // build rightNode
     LeafNode right;
     right.parent = this->parent;
@@ -70,19 +63,15 @@ LeafNode LeafNode::split1()
     return right;
 }
 
-bool LeafNode::delete_point(Point point)
-{
+bool LeafNode::delete_point(Point point) {
     vector<Point>::iterator iter = find(children->begin(), children->end(), point);
-    if (iter != children->end())
-    {
+    if (iter != children->end()) {
         // cout << "find it" << endl;
         children->erase(iter);
         // update mbr
-        if (!mbr.strict_contains(point))
-        {
+        if (!mbr.strict_contains(point)) {
             mbr.clean();
-            for (int i = 0; i < children->size(); i++)
-            {
+            for (int i = 0; i < children->size(); i++) {
                 mbr.update(point.x, point.y);
             }
         }

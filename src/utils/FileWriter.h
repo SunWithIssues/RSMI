@@ -9,10 +9,12 @@
 using namespace std;
 class FileWriter
 {
-    string filename;
+    string prefix;
+    string name;
+
 
 public:
-    FileWriter(string);
+    FileWriter(const std::string &prefix, const std::string &name);
     void write_build(ExpRecorder);
     void write_point_query(ExpRecorder);
     void write_window_query(ExpRecorder);

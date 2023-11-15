@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="DL190 (cd27ee36-5e70-4e44-8d9b-a857ea798fb6)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/local/storage/liang/.clion/RSMI" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-dl190" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-dl190" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="pitzer (821537c7-6463-462f-8542-53511b43d942)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="pitzer02 (f9d218ad-27bc-4cc9-b191-a2af78e612f0)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/users/PAS0350/geng161/.clion/RSMI" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-pitzer02" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-release-pitzer02" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

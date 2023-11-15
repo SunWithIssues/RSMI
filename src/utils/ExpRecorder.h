@@ -19,7 +19,7 @@ public:
     long long index_high;
     long long index_low;
 
-    long long leaf_node_num;
+    long long leaf_node_num; // total number of leaves
     long long non_leaf_node_num;
 
     int max_error = 0;
@@ -37,15 +37,12 @@ public:
     int last_level_model_num = 0;
 
     string structure_name;
-    string distribution;
-    long dataset_cardinality;
 
     long long insert_num;
     long delete_num;
     float window_size;
     float window_ratio;
     int k_num;
-    int skewness = 1;
 
     long time;
     long insert_time;
