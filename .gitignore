@@ -1,6 +1,6 @@
 .vscode/*
 *.o
-torch_models/*
+#torch_models/*
 Exp
 *.sh
 files/*
@@ -11,9 +11,14 @@ PostgreSQL/
 
 *.txt
 
-torch_models_zm/*
+#torch_models_zm/*
 
 *.eps
 *.png
 
 .idea/
+
+CMakeFiles/
+boost/
+build/
+cmake_install.cmake

@@ -15,5 +15,5 @@ message("TORCH_LIBRARIES: ${TORCH_LIBRARIES}")
 add_definitions(-Duse_gpu)
 
 add_executable(Exp ${SRCS})
-target_link_libraries(Exp "${TORCH_LIBRARIES}" pthread "${Boost_LIBRARIES}")
+target_link_libraries(Exp rt "${TORCH_LIBRARIES}" pthread "${Boost_LIBRARIES}" )
 set_property(TARGET Exp PROPERTY CXX_STANDARD 17)
