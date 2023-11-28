@@ -9,7 +9,7 @@ datasets/*
 
 PostgreSQL/
 
-*.txt
+#*.txt
 
 #torch_models_zm/*
 
