@@ -6,6 +6,7 @@ Exp
 files/*
 src/indices/ZM.h
 datasets/*
+samples/*
 
 PostgreSQL/
 
